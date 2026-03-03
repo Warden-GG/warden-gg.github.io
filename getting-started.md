@@ -32,26 +32,24 @@ Complete all of these steps **before** installing or launching anything.
 
 Download **Sordum Defender Control** from [sordum.org](https://www.sordum.org/9480/defender-control-v2-1/).
 
-> 💡 Tip: Use the "Add it to the Exclusion List" option to reduce false positives.
-
 ### Step 2 — Disable Windows Defender
 
 Open Defender Control and turn off Windows Defender completely.
 
-### Step 3 — Disable All Other Antivirus Software
+### Step 3 — Uninstall All Other Antivirus Software
 
-Fully exit and disable any third-party antivirus programs. If disabling alone doesn't help, uninstall them entirely and reboot.
+Fully uninstall any third-party antivirus programs, restart your PC, and continue.
 
 ### Step 4 — Disable the Vulnerable Driver Blocklist
 
-Either disable it in Windows Settings, or run the following in an elevated CMD or PowerShell:
+Run the following in an elevated CMD or PowerShell:
 ```powershell
 reg add HKLM\SYSTEM\CurrentControlSet\CI\Config /v "VulnerableDriverBlocklistEnable" /t REG_DWORD /d 0 /f
 ```
 
 ### Step 5 — Disable Core Isolation / Memory Integrity (HVCI)
 
-Either disable it in Windows Security settings, or run the following in an elevated CMD or PowerShell:
+Run the following in an elevated CMD or PowerShell:
 ```powershell
 reg add HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity /v "Enabled" /t REG_DWORD /d 0 /f
 ```
@@ -60,7 +58,7 @@ reg add HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEn
 
 Run the Hyper-V script found in the **#scripts** channel on Discord.
 
-> ⚠️ This is only required for the **Regular version**. Skip this if you're using the VM Compliant version.
+> ⚠️ If you are using VM Compliant you can skip this.
 
 ### Step 7 — Reboot & Disable Secure Boot
 
@@ -118,4 +116,4 @@ After every `/reload` in-game, you'll need to press **F3** to reload your script
 
 ## Need Help?
 
-Check the [Troubleshooting](troubleshooting.md) page first. If nothing there helps, open a ticket in **#technical-support** on Discord. Free remote setup is available.
+Check the [Troubleshooting](troubleshooting.md) page first. If nothing there helps, open a ticket in **#technical-support** on Discord.
