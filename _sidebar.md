@@ -1,4 +1,4 @@
-- **WardenGG Docs**
+- **Get Started**
 - [Home](/)
 
 - **Getting Started**
