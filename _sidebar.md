@@ -4,8 +4,8 @@
 - **Getting Started**
 - [Requirements](getting-started.md#requirements)
 - [Preparations](getting-started.md#preparations)
-- [Install & Launch](getting-started.md#install--launch)
-
+- [Install & Launch](getting-started.md#install-and-launch)
+- 
 - **Troubleshooting**
 - [Error 264](troubleshooting.md#error-264)
 - [Driver Loading Failed](troubleshooting.md#driver-loading-failed)
