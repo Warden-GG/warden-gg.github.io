@@ -4,17 +4,113 @@
   <meta charset="UTF-8">
   <title>WardenGG Docs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --theme-color: #00ff88;
-      --sidebar-background: #0d0d0d;
-      --base-background-color: #111111;
-      --base-color: #e0e0e0;
-      --sidebar-nav-link-color: #aaaaaa;
-      --sidebar-nav-link-color--active: #00ff88;
-      --cover-background-color: #0d0d0d;
+      --theme-color: #00e87a;
+      --base-background-color: #0e0e0e;
+      --sidebar-background: #141414;
+      --base-color: #d4d4d4;
+      --sidebar-width: 280px;
+      --sidebar-nav-link-color: #888;
+      --sidebar-nav-link-color--active: #00e87a;
+      --sidebar-nav-link-color--hover: #fff;
+      --sidebar-border-color: transparent;
+      --heading-color: #ffffff;
+      --blockquote-border-color: #00e87a;
+      --blockquote-background: #0d1f17;
+      --blockquote-color: #aaa;
+      --code-background: #1a1a1a;
+      --code-inline-background: #1e1e1e;
+      --code-inline-color: #00e87a;
+      --link-color: #00e87a;
+      --link-color--hover: #33ff99;
+      --hr-color: #222;
+      --strong-color: #ffffff;
+      --sidebar-nav-strong-color: #555;
+      --base-font-size: 15px;
+      --base-line-height: 1.75;
+      --content-max-width: 820px;
     }
+
+    body { font-family: 'Inter', sans-serif; }
+
+    .sidebar { border-right: 1px solid #1e1e1e !important; padding-top: 0 !important; }
+
+    .sidebar-nav { padding: 0 16px; }
+
+    .app-name { 
+      padding: 24px 20px 16px;
+      font-size: 17px !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid #1e1e1e;
+      margin-bottom: 16px;
+    }
+
+    .app-name a { color: #00e87a !important; text-decoration: none !important; }
+
+    .sidebar-nav > ul > li > a {
+      font-size: 11px !important;
+      font-weight: 600 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 1.2px !important;
+      color: #444 !important;
+      pointer-events: none;
+      margin-top: 20px;
+      display: block;
+    }
+
+    .sidebar-nav ul li a {
+      border-radius: 6px;
+      padding: 5px 10px !important;
+      margin: 1px 0;
+      transition: all 0.15s ease;
+      font-size: 13.5px !important;
+    }
+
+    .sidebar-nav ul li a:hover { background: #1a1a1a; color: #fff !important; }
+    .sidebar-nav ul ul li a { padding-left: 18px !important; font-size: 13px !important; }
+
+    .search { padding: 12px 16px !important; border-bottom: 1px solid #1e1e1e; margin-bottom: 8px; }
+    .search input { 
+      background: #1a1a1a !important;
+      border: 1px solid #2a2a2a !important;
+      border-radius: 8px !important;
+      color: #ccc !important;
+      font-family: 'Inter', sans-serif !important;
+      font-size: 13px !important;
+      padding: 8px 12px !important;
+    }
+
+    .content { padding: 40px 48px !important; }
+
+    h1 { font-size: 28px !important; font-weight: 600 !important; margin-bottom: 8px !important; border-bottom: 1px solid #1e1e1e !important; padding-bottom: 16px !important; }
+    h2 { font-size: 20px !important; font-weight: 600 !important; margin-top: 40px !important; margin-bottom: 12px !important; color: #fff !important; }
+    h3 { font-size: 15px !important; font-weight: 500 !important; color: #ccc !important; margin-top: 24px !important; }
+
+    code { font-family: 'JetBrains Mono', monospace !important; font-size: 13px !important; }
+    pre { border-radius: 10px !important; border: 1px solid #222 !important; }
+    pre code { font-size: 13px !important; }
+
+    blockquote {
+      border-left: 3px solid #00e87a !important;
+      background: #0d1a12 !important;
+      border-radius: 0 8px 8px 0 !important;
+      padding: 12px 16px !important;
+      margin: 16px 0 !important;
+    }
+
+    blockquote p { margin: 0 !important; font-size: 13.5px !important; }
+
+    .markdown-section hr { border-color: #1e1e1e !important; margin: 32px 0 !important; }
+
+    a { transition: color 0.15s ease; }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #3a3a3a; }
   </style>
 </head>
 <body>
@@ -25,11 +121,17 @@
       repo: '',
       loadSidebar: true,
       subMaxLevel: 2,
-      search: 'auto',
-      coverpage: false,
+      search: {
+        placeholder: 'Search docs...',
+        noData: 'No results found.',
+      },
+      alias: {
+        '/.*/_sidebar.md': '/_sidebar.md'
+      }
     }
   </script>
   <script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0"></script>
 </body>
 </html>
