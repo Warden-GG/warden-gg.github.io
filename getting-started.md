@@ -72,7 +72,7 @@ Once all steps above are complete, move on to installation.
 
 ---
 
-## Install & Launch
+## Install and Launch
 
 ### Step 1 — Download Your Files
 
