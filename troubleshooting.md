@@ -97,15 +97,37 @@ Two things to check:
 
 ---
 
+
+
 ## Unsupported WoW Version
 
-This can have a few different causes:
+Three distinct errors can appear. Find yours below:
 
-- **Servers are down** — check the **#news** channel on Discord for any announcements.
-- **WoW launched incorrectly** — always start WoW through the **Battle.net Launcher**, not directly via `wow.exe`.
-- **Outdated `product.db` file** — repair your WoW installation via the Battle.net Launcher (gear icon next to Play → **Scan and Repair**). If that doesn't help, open a ticket and attach your `C:\ProgramData\Battle.net\Agent\product.db` file. Make sure it's the correct one — `product.db` not `.product.db`.
+**`CONNECTION_FAILED` — "Connection to Server failed!"**
 
-> If none of the above resolves your issue, open a ticket in **#technical-support**.
+The launcher couldn't reach the authentication server.
+
+- Check **#news** on Discord — servers may be down
+- **CN users:** A VPN, firewall, or regional block may be interfering. Try toggling your VPN or switching servers
+- Check that your firewall/antivirus isn't blocking the launcher
+- If servers are confirmed up and the issue persists, open a ticket in **#technical-support**
+
+**`LOCAL_VERSION_ERROR` — "Could not determine WoW version"**
+
+The launcher failed to read your local WoW installation.
+
+- Open a ticket in **#technical-support** and attach your `product.db` file
+- File location: `C:\ProgramData\Battle.net\Agent\product.db`
+- ⚠️ Make sure it's `product.db` — **not** `.product.db` (note the dot prefix)
+
+**`VERSION_MISMATCH` — "Unsupported WoW version"**
+
+Your WoW client version isn't supported yet — typically after a patch or prepatch.
+
+- Wait for an update announcement in **#news**
+- In the meantime, try **Scan and Repair** via the Battle.net Launcher (gear icon → **Scan and Repair**)
+- Always launch WoW through the **Battle.net Launcher**, never directly via `wow.exe`
+- If the issue persists after an update is confirmed, open a ticket in **#technical-support**
 
 ---
 
