@@ -96,9 +96,33 @@ C:/WGG/
 
 ## 不支持的魔兽世界版本
 
-- **服务器停机** — 查看 Discord **#news** 频道
-- **启动方式不正确** — 请通过 **Battle.net 启动器**启动，而非直接运行 `wow.exe`
-- **`product.db` 已过期** — 通过 Battle.net 启动器扫描并修复魔兽世界。若仍无效，开启工单并附上 `C:\ProgramData\Battle.net\Agent\product.db` 文件
+出现了三种不同的错误，请找到你遇到的那个：
+
+**`CONNECTION_FAILED` — "无法连接到服务器！"**
+
+启动器无法连接到验证服务器。
+
+- 检查 Discord 的 **#news** 频道 — 服务器可能正在维护
+- **国服用户：** VPN、防火墙或地区封锁可能造成干扰，尝试切换或关闭 VPN
+- 检查防火墙或杀毒软件是否拦截了启动器
+- 如果确认服务器正常但问题仍然存在，请在 **#technical-support** 提交工单
+
+**`LOCAL_VERSION_ERROR` — "无法确定魔兽世界版本"**
+
+启动器无法读取你本地的魔兽世界安装文件。
+
+- 请在 **#technical-support** 提交工单，并附上你的 `product.db` 文件
+- 文件路径：`C:\ProgramData\Battle.net\Agent\product.db`
+- ⚠️ 请确认是 `product.db` — **不是** `.product.db`（注意有没有前面的点）
+
+**`VERSION_MISMATCH` — "不支持的魔兽世界版本"**
+
+你的客户端版本暂不支持，通常发生在版本更新或预补丁之后。
+
+- 请在 **#news** 等待更新公告
+- 同时可以尝试：通过战网启动器进行 **扫描并修复**（齿轮图标 → **扫描并修复**）
+- 始终通过 **战网启动器** 启动游戏，不要直接运行 `wow.exe`
+- 如果确认已更新但问题仍然存在，请在 **#technical-support** 提交工单
 
 ---
 
