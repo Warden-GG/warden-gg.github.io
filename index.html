@@ -176,15 +176,10 @@
     /* ── Lists ── */
     ul li, ol li { color: #c8c8c8 !important; line-height: 1.8 !important; }
 
-    /* ── Scrollbar ── */
-    ::-webkit-scrollbar { width: 5px; height: 5px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 3px; }
-    ::-webkit-scrollbar-thumb:hover { background: #3a3a3a; }
     /* ── Tables ── */
-    table { border-collapse: collapse !important; width: 100% !important; }
-    
-    th {
+    .markdown-section table { border-collapse: collapse !important; width: 100% !important; }
+
+    .markdown-section th {
       background: #1a1a1a !important;
       color: #fff !important;
       font-size: 13px !important;
@@ -193,16 +188,22 @@
       border: 1px solid #252525 !important;
       text-align: left !important;
     }
-    
-    td {
+
+    .markdown-section td {
       background: transparent !important;
       color: #c8c8c8 !important;
       font-size: 13px !important;
       padding: 9px 14px !important;
       border: 1px solid #1e1e1e !important;
     }
-    
-    tr:nth-child(even) td { background: #111 !important; }
+
+    .markdown-section tr:nth-child(even) td { background: #111 !important; }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar { width: 5px; height: 5px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #3a3a3a; }
   </style>
 </head>
 <body>
