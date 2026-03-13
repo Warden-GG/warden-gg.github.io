@@ -1,6 +1,12 @@
 - **Get Started**
 - [Home](/)
 
+- **Before Redemption**
+- [Do I need AntiFlag?](before-redemption.md#do-i-need-to-run-antiflag)
+- [Managing Scripts](before-redemption.md#how-do-i-manage-my-scripts)
+- [After Redeeming](before-redemption.md#what-do-i-do-after-redeeming-my-key)
+- [HWID Resets](before-redemption.md#how-many-hwid-resets-do-i-get)
+
 - **Getting Started**
 - [Requirements](getting-started.md#requirements)
 - [Preparations](getting-started.md#preparations)
