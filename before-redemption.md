@@ -1,12 +1,12 @@
 # Before Redemption
 
-Read this fully before redeeming your key. These are the most common issues new users run into — knowing this upfront will save you time.
+Read this fully before redeeming your key. These are the most common issues new users run into, and knowing this upfront will save you time.
 
 ---
 
 ## Do I need to run AntiFlag?
 
-Only if you've previously been banned or used another unlocker on this PC. Run it **once**, before your very first launch — never again after that. Re-running it at any point will trigger a HWID change.
+Only if you've previously been banned or used another unlocker on this PC. Run it **once**, before your very first launch. Never run it again after that. Re-running it at any point will trigger a HWID change.
 
 If this is your first time and you've never used any unlocker before, skip it entirely.
 
@@ -14,12 +14,12 @@ If this is your first time and you've never used any unlocker before, skip it en
 
 ## How do I manage my scripts?
 
-The unlocker loads all files inside `C:/WGG` that have a `.wgg` or `.lua` extension **and** start with an underscore (`_`). Scripts can run simultaneously — multiple active scripts in the folder will all load at once.
+The unlocker loads all files inside `C:/WGG` that have a `.wgg` or `.lua` extension **and** start with an underscore (`_`). Scripts can run simultaneously, so multiple active scripts in the folder will all load at once.
 
 To disable a script without deleting it, add `BAK` to the end of the filename:
 
-> `_phoenix.wgg` ← active
-> `_warden.wggBAK` ← disabled
+> `_phoenix.wgg` - active
+> `_warden.wggBAK` - disabled
 
 ---
 

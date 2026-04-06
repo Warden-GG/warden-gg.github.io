@@ -1,6 +1,3 @@
-- **Get Started**
-- [Home](/)
-
 - **Before Redemption**
 - [Do I need AntiFlag?](before-redemption.md#do-i-need-to-run-antiflag)
 - [Managing Scripts](before-redemption.md#how-do-i-manage-my-scripts)
@@ -18,7 +15,3 @@
 - [Injection Failed](troubleshooting.md#injection-failed)
 - [Rotation Not Loading](troubleshooting.md#rotation-not-loading)
 - [Unsupported WoW Version](troubleshooting.md#unsupported-wow-version)
-
-- **中文文档**
-- [新手入门](zh/getting-started.md)
-- [故障排查](zh/troubleshooting.md)

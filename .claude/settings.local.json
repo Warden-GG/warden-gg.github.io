@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "Bash(serve --version)",
+      "Bash(node -e \"console.log\\(process.execPath\\)\")",
+      "Bash(npm install:*)",
+      "Bash(cygpath -w \"C:/Users/Administrator/AppData/Roaming/npm/node_modules/http-server/bin/http-server\")"
+    ]
+  }
+}
