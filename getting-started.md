@@ -88,7 +88,7 @@ Head to your **User Dashboard → Downloads** and grab:
 
 If `C:/WGG` doesn't exist yet, create the folder manually.
 
-> ⚠️ Do not keep multiple script files in `C:/WGG` unless you intend to run them simultaneously. See [Double Script Execution](troubleshooting.md#double-script-execution) if unsure.
+> ℹ️ The unlocker only loads files with a `.wgg` or `.lua` extension that start with an underscore (`_`). Multiple scripts can run simultaneously.
 
 ### Step 3 — Run the Launcher
 

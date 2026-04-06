@@ -14,12 +14,12 @@ If this is your first time and you've never used any unlocker before, skip it en
 
 ## How do I manage my scripts?
 
-The unlocker loads every file inside `C:/WGG` simultaneously. Only keep one active script in the folder at a time. To disable a script without deleting it, add `BAK` to the end of the filename:
+The unlocker loads all files inside `C:/WGG` that have a `.wgg` or `.lua` extension **and** start with an underscore (`_`). Scripts can run simultaneously — multiple active scripts in the folder will all load at once.
 
-> `_phoenix.wgg` ← active  
+To disable a script without deleting it, add `BAK` to the end of the filename:
+
+> `_phoenix.wgg` ← active
 > `_warden.wggBAK` ← disabled
-
-See [Double Script Execution](troubleshooting.md#double-script-execution) for more detail.
 
 ---
 

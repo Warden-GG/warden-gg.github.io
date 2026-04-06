@@ -88,7 +88,7 @@ reg add HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEn
 
 如果 `C:/WGG` 文件夹不存在，请手动创建。
 
-> ⚠️ 除非您打算同时运行多个脚本，否则不要在 `C:/WGG` 中保留多个脚本文件。
+> ℹ️ 解锁器仅加载以下划线（`_`）开头且扩展名为 `.wgg` 或 `.lua` 的文件。多个脚本可以同时运行。
 
 ### 第三步 — 运行启动器
 

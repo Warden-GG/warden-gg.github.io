@@ -40,40 +40,6 @@ Remove-Item -Path "C:\Windows\System32\CodeIntegrity\driversipolicy.p7b" -Force 
 
 ---
 
-## 双脚本执行问题
-
-解锁器会同时加载 `C:/WGG` 中所有的 `.lua` 和 `.wgg` 文件，多个脚本同时运行会产生冲突。
-
-**每次只在 `C:/WGG` 中保留 1 个活动脚本。**
-
-### 问题所在
-```
-C:/WGG/
-  _phoenix.wgg
-  _warden.wgg
-  blabla.lua
-```
-
-三个文件都会被加载，这会导致冲突。
-
-### 解决方法
-
-将不需要加载的文件重命名，在扩展名后添加 `BAK`：
-```
-C:/WGG/
-  _phoenix.wgg
-  _warden.wggBAK
-  blabla.luaBAK
-```
-
-### 切换脚本
-
-1. 将当前脚本重命名：`_phoenix.wgg` → `_phoenix.wggBAK`
-2. 将目标脚本重命名回：`_warden.wggBAK` → `_warden.wgg`
-3. 游戏内输入 `/reload`
-4. 等待提示 **"Press F3 to load a script"**
-5. 按 **F3**
-
 ---
 
 ## 注入失败：请重试

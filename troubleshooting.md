@@ -37,44 +37,6 @@ Make sure both of the following are true:
 
 ---
 
-## Double Script Execution
-
-The unlocker loads every `.lua` and `.wgg` file inside `C:/WGG` simultaneously. If you have multiple scripts in there, they will all run at the same time and cause conflicts.
-
-**Only keep 1 active script in `C:/WGG` at a time.**
-
-### The Problem
-
-Your `C:/WGG` folder looks like this:
-```
-C:/WGG/
-  _phoenix.wgg
-  _warden.wgg
-  blabla.lua
-```
-
-All three files will load — this causes double script execution.
-
-### The Fix
-
-Rename any files you don't want to load by appending `BAK` to the extension:
-```
-C:/WGG/
-  _phoenix.wgg
-  _warden.wggBAK
-  blabla.luaBAK
-```
-
-Now only `_phoenix.wgg` will be loaded.
-
-### Swapping Scripts
-
-1. Rename the active script you want to deactivate — e.g. `_phoenix.wgg` → `_phoenix.wggBAK`
-2. Rename the script you want to activate back to `.wgg` or `.lua` — e.g. `_warden.wggBAK` → `_warden.wgg`
-3. Type `/reload` in-game.
-4. Wait for the prompt **"Press F3 to load a script"**.
-5. Press **F3**.
-
 ---
 
 ## Injection Failed: Try Again

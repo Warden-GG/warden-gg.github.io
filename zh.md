@@ -103,7 +103,7 @@ reg add HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEn
 
 如果 `C:/WGG` 文件夹不存在，请手动创建。
 
-> ⚠️ 除非您打算同时运行多个脚本，否则不要在 `C:/WGG` 中保留多个脚本文件。详见 [双脚本执行问题](#双脚本执行问题)。
+> ℹ️ 解锁器仅加载以下划线（`_`）开头且扩展名为 `.wgg` 或 `.lua` 的文件。多个脚本可以同时运行。
 
 ### 第三步 — 运行启动器
 
@@ -177,46 +177,6 @@ Remove-Item -Path "C:\Windows\System32\CodeIntegrity\driversipolicy.p7b" -Force 
 - **所有杀毒软件已完全卸载**。卸载后重启电脑再试。
 
 ---
-
-## 双脚本执行问题
-
-解锁器会同时加载 `C:/WGG` 中所有的 `.lua` 和 `.wgg` 文件。如果文件夹中存在多个脚本，它们将同时运行并产生冲突。
-
-**每次只在 `C:/WGG` 中保留 1 个活动脚本。**
-
-### 问题所在
-
-您的 `C:/WGG` 文件夹如下所示：
-
-```
-C:/WGG/
-  _phoenix.wgg
-  _warden.wgg
-  blabla.lua
-```
-
-三个文件都会被加载 — 这会导致双脚本执行问题。
-
-### 解决方法
-
-将不需要加载的文件重命名，在扩展名后添加 `BAK`：
-
-```
-C:/WGG/
-  _phoenix.wgg
-  _warden.wggBAK
-  blabla.luaBAK
-```
-
-现在只有 `_phoenix.wgg` 会被加载。
-
-### 切换脚本
-
-1. 将当前活动脚本重命名，例如 `_phoenix.wgg` → `_phoenix.wggBAK`
-2. 将要激活的脚本重命名回 `.wgg` 或 `.lua`，例如 `_warden.wggBAK` → `_warden.wgg`
-3. 在游戏内输入 `/reload`。
-4. 等待提示 **"Press F3 to load a script"**。
-5. 按 **F3**。
 
 ---
 
