@@ -74,37 +74,54 @@ Once all steps above are complete, move on to installation.
 
 ## Install and Launch
 
-### Step 1 - Download Your Files
+### Step 1 - Set Your Script Location
+
+Before anything else, log in to the website and head to your **User Dashboard > Settings > Script Location**.
+
+Enter the folder you want the Unlocker to load your scripts from, for example:
+
+- `C:/WGG`
+- `D:/Users/yourname/Documents/scripts`
+
+> ℹ️ The path must be a **local absolute path** with a drive letter (e.g. `C:/WGG`). Network paths (`\\server\share`), `..` and special characters are not allowed. Leave the field empty to use the default (`C:/WGG`).
+
+Click **Save**. This path is securely sent to the Unlocker — it determines where your script files are loaded from.
+
+### Step 2 - Download Your Files
 
 Head to your **User Dashboard > Downloads** and grab:
 
 - `UNLKR.exe`
 - `_wardengg.zip`
 
-### Step 2 - Place the Files
+### Step 3 - Place the Files
 
 - `UNLKR.exe` - save this anywhere you like.
-- `_wardengg.zip` - extract it to `C:/WGG` so that `wardengg.wgg` sits directly inside `C:/WGG`.
+- `_wardengg.zip` - extract it into **the script location folder you set in Step 1**, so that `wardengg.wgg` sits directly inside that folder.
 
-If `C:/WGG` doesn't exist yet, create the folder manually.
+  Example: if you set your script location to `D:/Users/yourname/Documents/scripts`, extract it so that the file lands at `D:/Users/yourname/Documents/scripts/wardengg.wgg`.
+
+If the folder doesn't exist yet, create it manually — it must match the path you entered in Settings exactly.
 
 > ℹ️ The unlocker only loads files with a `.wgg` or `.lua` extension that start with an underscore (`_`). Multiple scripts can run simultaneously.
 
-### Step 3 - Run the Launcher
+### Step 4 - Run the Launcher
 
 1. Right-click `UNLKR.exe` and run it as Administrator.
 2. Log in with your registered account.
 3. Click **Inject**.
 
-### Step 4 - Launch WoW
+### Step 5 - Launch WoW
 
 Once the status reads **"Waiting for WoW..."**, start World of Warcraft. You can launch through the Battle.net Launcher or directly via the WoW `.exe`, both work.
 
-### Step 5 - You're In
+### Step 6 - You're In
 
 - The injection will begin and the launcher will close automatically.
 - In-game chat will display: `[+] WGG-Core Ready!`
-- All `.wgg` and `.lua` files in `C:/WGG` will load automatically (e.g. `_wardengg.wgg`, `_phoenix.wgg`).
+- All `.wgg` and `.lua` files in **your configured script location** will load automatically (e.g. `_wardengg.wgg`, `_phoenix.wgg`).
+
+> 💡 You can change your script location anytime in **Settings**. The change takes effect within ~30 seconds while a session is running (it applies on the next in-game reload or zone change) — no need to log out.
 
 ---
 
