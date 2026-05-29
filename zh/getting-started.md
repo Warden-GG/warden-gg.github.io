@@ -72,39 +72,57 @@ reg add HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEn
 
 ---
 
-## 安装和启动
+## 安装与启动
 
-### 第一步 - 下载文件
+### 第 1 步 - 设置脚本位置
 
-前往您的 **用户控制台 > 下载**，获取以下文件：
+在开始之前，请先登录网站，进入你的 **用户面板 > 设置 > 脚本位置 (User Dashboard > Settings > Script Location)**。
+
+输入你希望解锁器从中加载脚本的文件夹，例如：
+
+- `C:/WGG`
+- `D:/Users/yourname/Documents/scripts`
+
+> ℹ️ 该路径必须是带有盘符的 **本地绝对路径**（例如 `C:/WGG`）。不允许使用网络路径（`\\server\share`）、`..` 以及特殊字符。留空则使用默认路径（`C:/WGG`）。
+
+点击 **保存 (Save)**。该路径会被安全地发送到解锁器——它决定了你的脚本文件从哪里加载。
+
+### 第 2 步 - 下载文件
+
+进入你的 **用户面板 > 下载 (User Dashboard > Downloads)**，获取：
 
 - `UNLKR.exe`
 - `_wardengg.zip`
 
-### 第二步 - 放置文件
+### 第 3 步 - 放置文件
 
-- `UNLKR.exe` - 保存到任意位置。
-- `_wardengg.zip` - 解压到 `C:/WGG`，确保 `wardengg.wgg` 直接位于 `C:/WGG` 目录下。
+- `UNLKR.exe` - 可以保存到任意你喜欢的位置。
+- `_wardengg.zip` - 将其解压到 **你在第 1 步设置的脚本位置文件夹** 中，使 `wardengg.wgg` 直接位于该文件夹内。
 
-如果 `C:/WGG` 文件夹不存在，请手动创建。
+  示例：如果你将脚本位置设置为 `D:/Users/yourname/Documents/scripts`，则解压后文件应位于 `D:/Users/yourname/Documents/scripts/wardengg.wgg`。
 
-> ℹ️ 解锁器仅加载以下划线（`_`）开头且扩展名为 `.wgg` 或 `.lua` 的文件。多个脚本可以同时运行。
+如果该文件夹尚不存在，请手动创建——它必须与你在设置中输入的路径完全一致。
 
-### 第三步 - 运行启动器
+> ℹ️ 解锁器只会加载以下划线（`_`）开头、扩展名为 `.wgg` 或 `.lua` 的文件。多个脚本可以同时运行。
+
+### 第 4 步 - 运行启动器
 
 1. 右键点击 `UNLKR.exe`，以管理员身份运行。
-2. 使用您注册的账号登录。
-3. 点击 **Inject（注入）**。
+2. 使用你已注册的账号登录。
+3. 点击 **注入 (Inject)**。
 
-### 第四步 - 启动魔兽世界
+### 第 5 步 - 启动魔兽世界
 
-当状态显示 **"Waiting for WoW..."** 时，启动魔兽世界。可通过 Battle.net 启动器或直接运行 WoW `.exe`，两种方式均可。
+当状态显示 **"Waiting for WoW..."（等待魔兽世界...）** 时，启动《魔兽世界》。你可以通过战网启动器（Battle.net Launcher）启动，也可以直接运行 WoW 的 `.exe`，两种方式均可。
 
-### 第五步 - 成功进入
+### 第 6 步 - 成功进入
 
 - 注入将开始，启动器会自动关闭。
 - 游戏内聊天框将显示：`[+] WGG-Core Ready!`
-- `C:/WGG` 中所有 `.wgg` 和 `.lua` 文件将自动加载。
+- **你所配置的脚本位置** 中的所有 `.wgg` 和 `.lua` 文件将自动加载（例如 `_wardengg.wgg`、`_phoenix.wgg`）。
+
+> 💡 你可以随时在 **设置 (Settings)** 中更改脚本位置。在会话运行期间，更改会在约 30 秒内生效（在下一次游戏内重载或切换区域时应用）——无需登出。
+
 
 ---
 
