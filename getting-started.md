@@ -4,8 +4,8 @@
 
 Before you begin, make sure your system meets the following:
 
-- Windows 10 (22H2) or Windows 11 (24H2 / 25H2)
-- World of Warcraft Retail (US/EU) or Classic MoP (US/EU)
+- **Windows 10 Pro (22H2)** or **Windows 11 Pro (24H2 or 25H2)**. Windows Home and other editions are not supported.
+- World of Warcraft Retail (EU/US/CN)
 - WardenGG Launcher - download from your Dashboard
 - Everything must be run as Administrator
 

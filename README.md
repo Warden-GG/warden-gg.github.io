@@ -11,4 +11,4 @@ Welcome to the official WardenGG documentation. Use the sidebar to navigate.
 
 ---
 
-> ⚠️ **Need direct support?** Open a ticket in **#technical-support** on Discord. Free remote setup is available.
+> ⚠️ **Need direct support?** Open a ticket in **#technical-support** on Discord.

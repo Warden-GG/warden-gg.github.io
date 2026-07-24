@@ -35,7 +35,6 @@ To disable a script without deleting it, add `BAK` to the end of the filename:
 | Key | Free Resets |
 |-----|-------------|
 | 30-day | 1 |
-| 90-day | 3 |
 
 Additional resets are **$20 each**.
 

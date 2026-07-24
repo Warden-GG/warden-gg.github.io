@@ -1,6 +1,6 @@
 # Troubleshooting
 
-Before opening a ticket, work through the relevant section below. If nothing here resolves your issue, open a ticket in **#technical-support** on Discord. Free remote setup is available.
+Before opening a ticket, work through the relevant section below. If nothing here resolves your issue, open a ticket in **#technical-support** on Discord.
 
 ---
 
@@ -24,7 +24,7 @@ Remove-Item -Path "C:\Windows\System32\CodeIntegrity\driversipolicy.p7b" -Force 
 ### Step 4 - Retry
 Launch `UNLKR.exe` again and attempt to inject.
 
-> ⚠️ Still not working? Open a ticket in **#technical-support**. Free remote setup is available.
+> ⚠️ Still not working? Open a ticket in **#technical-support**.
 
 ---
 
@@ -32,7 +32,7 @@ Launch `UNLKR.exe` again and attempt to inject.
 
 Make sure both of the following are true:
 
-- The **Vulnerable Driver Blocklist** is disabled. See [Step 4 in Getting Started](getting-started.md#step-4--disable-the-vulnerable-driver-blocklist) for the exact registry commands.
+- The **Vulnerable Driver Blocklist** is disabled. See [Step 4 in Getting Started](getting-started.md#step-4-disable-the-vulnerable-driver-blocklist) for the exact registry commands.
 - **All antivirus software is fully disabled or uninstalled.** If disabling isn't enough, uninstall it completely, restart your PC, and try again.
 
 ---
