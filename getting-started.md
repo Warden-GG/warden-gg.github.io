@@ -97,9 +97,9 @@ Head to your **User Dashboard > Downloads** and grab:
 ### Step 3 - Place the Files
 
 - `UNLKR.exe` - save this anywhere you like.
-- Your script archive - extract it into **the script location folder you set in Step 1**, so that `wardengg.wgg` sits directly inside that folder.
+- Your script archive - extract it into **the script location folder you set in Step 1**, so that `_your-script.wgg` sits directly inside that folder.
 
-  Example: if you set your script location to `D:/Users/yourname/Documents/scripts`, extract it so that the file lands at `D:/Users/yourname/Documents/scripts/wardengg.wgg`.
+  Example: if you set your script location to `D:/Users/yourname/Documents/scripts`, extract it so that the file lands at `D:/Users/yourname/Documents/scripts/_your-script.wgg`.
 
 If the folder doesn't exist yet, create it manually — it must match the path you entered in Settings exactly.
 

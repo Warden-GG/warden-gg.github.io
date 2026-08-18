@@ -97,9 +97,9 @@ reg add HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEn
 ### 第 3 步 - 放置文件
 
 - `UNLKR.exe` - 可以保存到任意你喜欢的位置。
-- 下载的脚本压缩包 - 将其解压到 **你在第 1 步设置的脚本位置文件夹** 中，使 `wardengg.wgg` 直接位于该文件夹内。
+- 下载的脚本压缩包 - 将其解压到 **你在第 1 步设置的脚本位置文件夹** 中，使 `_your-script.wgg` 直接位于该文件夹内。
 
-  示例：如果你将脚本位置设置为 `D:/Users/yourname/Documents/scripts`，则解压后文件应位于 `D:/Users/yourname/Documents/scripts/wardengg.wgg`。
+  示例：如果你将脚本位置设置为 `D:/Users/yourname/Documents/scripts`，则解压后文件应位于 `D:/Users/yourname/Documents/scripts/_your-script.wgg`。
 
 如果该文件夹尚不存在，请手动创建——它必须与你在设置中输入的路径完全一致。
 

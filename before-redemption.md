@@ -18,8 +18,8 @@ The unlocker loads all files inside `C:/WGG` that have a `.wgg` or `.lua` extens
 
 To disable a script without deleting it, add `BAK` to the end of the filename:
 
-> `_phoenix.wgg` - active
-> `_warden.wggBAK` - disabled
+> `_your-script.wgg` - active
+> `_your-script.wggBAK` - disabled
 
 ---
 

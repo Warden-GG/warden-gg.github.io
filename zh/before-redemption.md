@@ -18,8 +18,8 @@
 
 如需禁用脚本而不删除，在文件名末尾添加 `BAK`：
 
-> `_phoenix.wgg` - 活动
-> `_warden.wggBAK` - 已禁用
+> `_your-script.wgg` - 活动
+> `_your-script.wggBAK` - 已禁用
 
 ---
 
