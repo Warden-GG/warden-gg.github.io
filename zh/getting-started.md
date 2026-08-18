@@ -92,12 +92,12 @@ reg add HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEn
 进入你的 **用户面板 > 下载 (User Dashboard > Downloads)**，获取：
 
 - `UNLKR.exe`
-- `_wardengg.zip`
+- 脚本压缩包
 
 ### 第 3 步 - 放置文件
 
 - `UNLKR.exe` - 可以保存到任意你喜欢的位置。
-- `_wardengg.zip` - 将其解压到 **你在第 1 步设置的脚本位置文件夹** 中，使 `wardengg.wgg` 直接位于该文件夹内。
+- 下载的脚本压缩包 - 将其解压到 **你在第 1 步设置的脚本位置文件夹** 中，使 `wardengg.wgg` 直接位于该文件夹内。
 
   示例：如果你将脚本位置设置为 `D:/Users/yourname/Documents/scripts`，则解压后文件应位于 `D:/Users/yourname/Documents/scripts/wardengg.wgg`。
 
@@ -119,7 +119,7 @@ reg add HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEn
 
 - 注入将开始，启动器会自动关闭。
 - 游戏内聊天框将显示：`[+] WGG-Core Ready!`
-- **你所配置的脚本位置** 中的所有 `.wgg` 和 `.lua` 文件将自动加载（例如 `_wardengg.wgg`、`_phoenix.wgg`）。
+- **你所配置的脚本位置** 中的所有 `.wgg` 和 `.lua` 文件将自动加载（例如 `_your-script.wgg`、`_phoenix.wgg`）。
 
 > 💡 你可以随时在 **设置 (Settings)** 中更改脚本位置。在会话运行期间，更改会在约 30 秒内生效（在下一次游戏内重载或切换区域时应用）——无需登出。
 

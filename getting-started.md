@@ -92,12 +92,12 @@ Click **Save**. This path is securely sent to the Unlocker — it determines whe
 Head to your **User Dashboard > Downloads** and grab:
 
 - `UNLKR.exe`
-- `_wardengg.zip`
+- Your script archive
 
 ### Step 3 - Place the Files
 
 - `UNLKR.exe` - save this anywhere you like.
-- `_wardengg.zip` - extract it into **the script location folder you set in Step 1**, so that `wardengg.wgg` sits directly inside that folder.
+- Your script archive - extract it into **the script location folder you set in Step 1**, so that `wardengg.wgg` sits directly inside that folder.
 
   Example: if you set your script location to `D:/Users/yourname/Documents/scripts`, extract it so that the file lands at `D:/Users/yourname/Documents/scripts/wardengg.wgg`.
 
@@ -119,7 +119,7 @@ Once the status reads **"Waiting for WoW..."**, start World of Warcraft. You can
 
 - The injection will begin and the launcher will close automatically.
 - In-game chat will display: `[+] WGG-Core Ready!`
-- All `.wgg` and `.lua` files in **your configured script location** will load automatically (e.g. `_wardengg.wgg`, `_phoenix.wgg`).
+- All `.wgg` and `.lua` files in **your configured script location** will load automatically (e.g. `_your-script.wgg`, `_phoenix.wgg`).
 
 > 💡 You can change your script location anytime in **Settings**. The change takes effect within ~30 seconds while a session is running (it applies on the next in-game reload or zone change) — no need to log out.
 
