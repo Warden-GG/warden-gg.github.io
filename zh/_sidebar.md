@@ -1,6 +1,7 @@
 - [概览](zh/)
 
 - [兑换前须知](zh/before-redemption.md)
+  - [TPM 2.0 要求](zh/before-redemption.md#tpm-20-要求)
   - [是否需要 AntiFlag？](zh/before-redemption.md#是否需要运行-antiflag？)
   - [管理脚本](zh/before-redemption.md#如何管理脚本？)
   - [兑换后怎么做](zh/before-redemption.md#兑换后怎么做？)
@@ -10,6 +11,11 @@
   - [系统要求](zh/getting-started.md#系统要求)
   - [准备工作](zh/getting-started.md#准备工作)
   - [安装与启动](zh/getting-started.md#安装与启动)
+
+- [TPM 2.0 设置](zh/enable-tpm.md)
+  - [在 Windows 中检查](zh/enable-tpm.md#先在-windows-中检查)
+  - [主板品牌](zh/enable-tpm.md#按主板品牌启用-tpm)
+  - [查找型号和手册](zh/enable-tpm.md#查找型号和手册)
 
 - [故障排查](zh/troubleshooting.md)
   - [错误代码 264](zh/troubleshooting.md#错误代码-264)
