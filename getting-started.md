@@ -2,6 +2,12 @@
 
 ## Requirements
 
+> **TPM 2.0 is required**
+>
+> The unlocker now requires TPM 2.0. You cannot use the unlocker without TPM 2.0.
+>
+> Follow [Enable TPM 2.0](enable-tpm.md) to check your PC and find the settings for your motherboard brand.
+
 Before you begin, make sure your system meets the following:
 
 - **Windows 10 Pro (22H2)** or **Windows 11 Pro (24H2 or 25H2)**. Windows Home and other editions are not supported.

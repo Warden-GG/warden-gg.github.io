@@ -1,6 +1,7 @@
 - [Overview](/)
 
 - [Before Redemption](before-redemption.md)
+  - [TPM 2.0 Requirement](before-redemption.md#tpm-20-requirement)
   - [Do I need AntiFlag?](before-redemption.md#do-i-need-to-run-antiflag)
   - [Managing Scripts](before-redemption.md#how-do-i-manage-my-scripts)
   - [After Redeeming](before-redemption.md#what-do-i-do-after-redeeming-my-key)
@@ -10,6 +11,11 @@
   - [Requirements](getting-started.md#requirements)
   - [Preparations](getting-started.md#preparations)
   - [Install and Launch](getting-started.md#install-and-launch)
+
+- [TPM 2.0 Setup](enable-tpm.md)
+  - [Check in Windows](enable-tpm.md#check-in-windows-first)
+  - [Motherboard Brands](enable-tpm.md#enable-tpm-by-motherboard-brand)
+  - [Find Your Model and Manual](enable-tpm.md#find-your-model-and-manual)
 
 - [Troubleshooting](troubleshooting.md)
   - [Error 264](troubleshooting.md#error-264)
