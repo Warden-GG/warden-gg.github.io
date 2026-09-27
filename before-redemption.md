@@ -10,16 +10,6 @@ Read this fully before redeeming your key. These are the most common issues new 
 >
 > Not sure how to check? See [Enable TPM 2.0](enable-tpm.md) for Windows checks and motherboard instructions.
 
----
-
-## Do I need to run AntiFlag?
-
-Only if you've previously been banned or used another unlocker on this PC. Run it **once**, before your very first launch. Never run it again after that. Re-running it at any point will trigger a HWID change.
-
-If this is your first time and you've never used any unlocker before, skip it entirely.
-
----
-
 ## How do I manage my scripts?
 
 The unlocker loads all files inside `C:/WGG` that have a `.wgg` or `.lua` extension **and** start with an underscore (`_`). Scripts can run simultaneously, so multiple active scripts in the folder will all load at once.

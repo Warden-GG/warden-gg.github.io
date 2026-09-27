@@ -15,21 +15,6 @@ Before you begin, make sure your system meets the following:
 - WardenGG Launcher - download from your Dashboard
 - Everything must be run as Administrator
 
----
-
-## Previously Banned or Used Another Unlocker?
-
-If you've ever been banned or used a different unlocker/cheat on this PC, your machine may already be flagged. **Do not skip this section.**
-
-1. Run the **WGG_AntiFlag** tool and follow its instructions fully.
-2. We strongly recommend a clean Windows reinstall with a fresh WoW account on the clean system.
-
-> ⚠️ If you skip this, we cannot guarantee your safety. Your PC could still be flagged.
-
-If this is your first time and you've never used any unlocker before, you can skip this step entirely.
-
----
-
 ## Preparations
 
 Complete all of these steps **before** installing or launching anything.

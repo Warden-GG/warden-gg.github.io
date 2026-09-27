@@ -2,7 +2,6 @@
 
 - [兑换前须知](zh/before-redemption.md)
   - [TPM 2.0 要求](zh/before-redemption.md#tpm-20-要求)
-  - [是否需要 AntiFlag？](zh/before-redemption.md#是否需要运行-antiflag？)
   - [管理脚本](zh/before-redemption.md#如何管理脚本？)
   - [兑换后怎么做](zh/before-redemption.md#兑换后怎么做？)
   - [HWID 重置次数](zh/before-redemption.md#hwid-重置次数)
