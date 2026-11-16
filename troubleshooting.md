@@ -4,6 +4,21 @@ Before opening a ticket, work through the relevant section below. If nothing her
 
 ---
 
+## Error 430 - No Script Location Set
+
+Error **430** during login means no script location is set in your User Dashboard.
+
+1. Log in to the website and open **User Dashboard > Settings > Script Location**.
+2. Enter the full path to the actual folder where you keep your scripts. Use a local absolute path with a drive letter, such as `C:/Users/Alex/Documents/Scripts`, adjusted to your own username and folder.
+3. Use **forward slashes (`/`) only**, not backslashes (`\`).
+4. Click **Save**, then try logging in to the launcher again.
+
+**`C:/WGG` is a placeholder and must not be used as your script location.** Replace any example path with your actual folder path. Do not leave the field empty.
+
+See [Set Your Script Location](getting-started.md#step-1-set-your-script-location) for setup instructions.
+
+---
+
 ## Error 264
 
 ### Step 1 - Open PowerShell as Administrator

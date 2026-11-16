@@ -12,7 +12,7 @@ Read this fully before redeeming your key. These are the most common issues new 
 
 ## How do I manage my scripts?
 
-The unlocker loads all files inside `C:/WGG` that have a `.wgg` or `.lua` extension **and** start with an underscore (`_`). Scripts can run simultaneously, so multiple active scripts in the folder will all load at once.
+The unlocker loads all files inside the script folder you set in **User Dashboard > Settings > Script Location** that have a `.wgg` or `.lua` extension **and** start with an underscore (`_`). Scripts can run simultaneously, so multiple active scripts in the folder will all load at once.
 
 To disable a script without deleting it, add `BAK` to the end of the filename:
 

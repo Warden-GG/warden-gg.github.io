@@ -69,14 +69,14 @@ Once all steps above are complete, move on to installation.
 
 Before anything else, log in to the website and head to your **User Dashboard > Settings > Script Location**.
 
-Enter the folder you want the Unlocker to load your scripts from, for example:
+Choose the actual folder where you will keep your scripts and enter its full path. For example, if your Windows username is `Alex` and your scripts are in the `Scripts` folder under Documents, enter `C:/Users/Alex/Documents/Scripts`. Replace this example with the path to your own folder.
 
-- `C:/WGG`
-- `D:/Users/yourname/Documents/scripts`
+- Use a **local absolute path** that starts with a drive letter.
+- Use **forward slashes (`/`) only**, not backslashes (`\`).
+- Create the folder if it does not exist, and make sure your script files are inside it.
+- Network paths, `..` and special characters are not allowed.
 
-> ℹ️ The path must be a **local absolute path** with a drive letter (e.g. `C:/WGG`). Network paths (`\\server\share`), `..` and special characters are not allowed. Leave the field empty to use the default (`C:/WGG`).
-
-Click **Save**. This path is securely sent to the Unlocker — it determines where your script files are loaded from.
+Click **Save**. You must set and save a script location before logging in to the launcher. Leaving it empty causes [login error 430](troubleshooting.md#error-430-no-script-location-set).
 
 ### Step 2 - Download Your Files
 
@@ -90,7 +90,7 @@ Head to your **User Dashboard > Downloads** and grab:
 - `UNLKR.exe` - save this anywhere you like.
 - Your script archive - extract it into **the script location folder you set in Step 1**, so that `_your-script.wgg` sits directly inside that folder.
 
-  Example: if you set your script location to `D:/Users/yourname/Documents/scripts`, extract it so that the file lands at `D:/Users/yourname/Documents/scripts/_your-script.wgg`.
+  Example: if you set your script location to `C:/Users/Alex/Documents/Scripts`, extract it so that the file lands at `C:/Users/Alex/Documents/Scripts/_your-script.wgg`.
 
 If the folder doesn't exist yet, create it manually — it must match the path you entered in Settings exactly.
 
