@@ -67,16 +67,16 @@ reg add HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEn
 
 ### 第 1 步 - 设置脚本位置
 
-在开始之前，请先登录网站，进入你的 **用户面板 > 设置 > 脚本位置 (User Dashboard > Settings > Script Location)**。
+在开始之前，请先登录网站，进入你的用户面板 > 设置 > 脚本位置 (User Dashboard > Settings > Script Location)。
 
-输入你希望解锁器从中加载脚本的文件夹，例如：
+选择实际存放脚本的文件夹，并输入完整路径。例如，如果 Windows 用户名是 `Alex`，脚本保存在“文档”下的 `Scripts` 文件夹中，则填写 `C:/Users/Alex/Documents/Scripts`。请将示例替换为你自己的实际文件夹路径。
 
-- `C:/WGG`
-- `D:/Users/yourname/Documents/scripts`
+- 必须使用以盘符开头的本地绝对路径。
+- **只能使用正斜杠（`/`）**，不能使用反斜杠（`\`）。
+- 如果文件夹不存在，请先创建，并将脚本文件放入该文件夹。
+- 不允许使用网络路径、`..` 或特殊字符。
 
-> ℹ️ 该路径必须是带有盘符的 **本地绝对路径**（例如 `C:/WGG`）。不允许使用网络路径（`\\server\share`）、`..` 以及特殊字符。留空则使用默认路径（`C:/WGG`）。
-
-点击 **保存 (Save)**。该路径会被安全地发送到解锁器——它决定了你的脚本文件从哪里加载。
+点击保存 (Save)。登录启动器前必须设置并保存脚本位置。留空会导致 [登录错误 430](zh/troubleshooting.md#错误代码-430-未设置脚本位置)。
 
 ### 第 2 步 - 下载文件
 
@@ -90,7 +90,7 @@ reg add HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEn
 - `UNLKR.exe` - 可以保存到任意你喜欢的位置。
 - 下载的脚本压缩包 - 将其解压到 **你在第 1 步设置的脚本位置文件夹** 中，使 `_your-script.wgg` 直接位于该文件夹内。
 
-  示例：如果你将脚本位置设置为 `D:/Users/yourname/Documents/scripts`，则解压后文件应位于 `D:/Users/yourname/Documents/scripts/_your-script.wgg`。
+  示例：如果你将脚本位置设置为 `C:/Users/Alex/Documents/Scripts`，则解压后文件应位于 `C:/Users/Alex/Documents/Scripts/_your-script.wgg`。
 
 如果该文件夹尚不存在，请手动创建——它必须与你在设置中输入的路径完全一致。
 
