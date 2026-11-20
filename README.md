@@ -1,17 +1,22 @@
 # WardenGG Documentation
 
-Setup guides, script management, and troubleshooting. Start with the requirements, then follow the guide step by step.
+Setup, configuration and troubleshooting for WardenGG products.
 
-> **TPM 2.0 is now required**
->
-> You cannot use the unlocker without TPM 2.0. Check your system meets this requirement before redeeming a key or starting setup.
->
-> Need help? [Check and enable TPM 2.0](enable-tpm.md) with instructions for ASUS, MSI, Gigabyte/AORUS, and ASRock.
+<div class="product-directory">
+  <section>
+    <h2><a href="wow.md">World of Warcraft</a></h2>
+    <p>Check requirements, redeem your key, set up scripts and resolve launcher errors.</p>
+    <a href="getting-started.md">Getting started</a>
+    <a href="troubleshooting.md">Troubleshooting</a>
+  </section>
+  <section>
+    <h2><a href="overwatch.md">Overwatch 2</a></h2>
+    <p>Get familiar with the launcher, hero profiles, combo builder and display settings.</p>
+    <a href="overwatch-setup.md">Getting started</a>
+    <a href="overwatch-settings.md">Settings and profiles</a>
+  </section>
+</div>
 
-## Find your next step
+## Support
 
-1. [Before Redemption](before-redemption.md) - Read the requirements and key information before you redeem.
-2. [Getting Started](getting-started.md) - Prepare your system, install the launcher, and load your scripts.
-3. [Troubleshooting](troubleshooting.md) - Find help with launcher errors, loading issues, and common problems.
-
-**Still need help?** Open a ticket in **#technical-support** on Discord after checking the relevant guide.
+If a guide does not resolve the issue, open a ticket in **#technical-support** on Discord. Include the product, the version you’re using, and the exact error or screen you’re stuck on.

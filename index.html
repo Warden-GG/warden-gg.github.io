@@ -1,470 +1,55 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Official setup and troubleshooting documentation for WardenGG.">
-  <meta name="theme-color" content="#101315">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Official WardenGG documentation for World of Warcraft and Overwatch 2 External.">
+  <meta name="theme-color" content="#101319">
   <title>WardenGG Documentation</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
-  <link rel="stylesheet" href="assets/vendor/lenis.css">
-  <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css?v=20261120">
 </head>
 <body>
   <button class="skip-link" type="button">Skip to content</button>
-  <header class="mobile-header" aria-hidden="true">WardenGG Documentation</header>
-  <div id="app">Loading documentation...</div>
-  <script src="assets/vendor/lenis.min.js"></script>
-  <script src="motion.js"></script>
-  <script>
-    function wggPlugin(hook) {
-      var shellInitialized = false;
-      var outlineScrollHandler;
-
-      hook.doneEach(function() {
-        classifyNotes();
-        enhanceOverview();
-        updateActiveNavigation();
-        enhancePageSemantics();
-
-        if (!shellInitialized) {
-          shellInitialized = createLanguageSwitch();
-          enhanceBrand();
-        }
-
-        updateLanguageState();
-        enhanceDocumentLayout();
-      });
-
-      function classifyNotes() {
-        document.querySelectorAll('.markdown-section blockquote').forEach(function(blockquote) {
-          blockquote.classList.remove('bq-warning', 'bq-info', 'bq-tip', 'requirement-note');
-          var text = blockquote.textContent || '';
-          var title = blockquote.querySelector('strong');
-
-          if (title && title.textContent.indexOf('TPM 2.0') !== -1) {
-            blockquote.classList.add('requirement-note');
-          } else if (text.indexOf('\u26a0') !== -1) {
-            blockquote.classList.add('bq-warning');
-          } else if (text.indexOf('\u2139') !== -1) {
-            blockquote.classList.add('bq-info');
-          } else if (text.indexOf('\ud83d\udca1') !== -1) {
-            blockquote.classList.add('bq-tip');
-          }
-        });
-      }
-
-      function enhanceOverview() {
-        var path = (location.hash || '#/').replace(/\?.*$/, '');
-        if (!/^#\/(zh\/?)?$/.test(path)) return;
-        var article = document.querySelector('.markdown-section');
-        var list = article && article.querySelector('ol');
-        if (!list) return;
-        var guides = document.createElement('div');
-        guides.className = 'guide-list';
-        Array.from(list.children).forEach(function(item, index) {
-          var link = item.querySelector('a');
-          if (!link) return;
-          var title = link.textContent;
-          var description = item.textContent.slice(title.length).replace(/^\s*-\s*/, '').trim();
-          link.className = 'guide-link';
-          link.innerHTML = '<span class="guide-icon" aria-hidden="true">' + icon(['key', 'book', 'help'][index]) + '</span>' +
-            '<span class="guide-number" aria-hidden="true"></span>' +
-            '<span class="guide-copy"><span class="guide-title"></span><span class="guide-description"></span></span>' +
-            '<span class="guide-arrow" aria-hidden="true">&rarr;</span>';
-          link.querySelector('.guide-number').textContent = '0' + (index + 1);
-          link.querySelector('.guide-title').textContent = title;
-          link.querySelector('.guide-description').textContent = description;
-          guides.appendChild(link);
-        });
-        list.replaceWith(guides);
-        var support = article.lastElementChild;
-        if (support && support.tagName === 'P') support.classList.add('support-note');
-      }
-
-      function icon(name) {
-        var paths = {
-          home: '<path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z"/>',
-          key: '<circle cx="8" cy="9" r="5"/><path d="m12 13 9 9m-4-4 3-3m-6 0 3-3"/>',
-          book: '<path d="M4 4h6a3 3 0 0 1 3 3v14a4 4 0 0 0-4-2H4Zm16 0h-4a3 3 0 0 0-3 3v14a4 4 0 0 1 4-2h3Z"/>',
-          chip: '<rect x="6" y="6" width="12" height="12" rx="3"/><path d="M9 1v5m6-5v5M9 18v5m6-5v5M1 9h5m-5 6h5m12-6h5m-5 6h5"/><path d="m9 12 2 2 4-4"/>',
-          help: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="m5.6 5.6 3.6 3.6m5.6 5.6 3.6 3.6m0-12.8-3.6 3.6m-5.6 5.6-3.6 3.6"/>'
-        };
-        return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (paths[name] || paths.book) + '</svg>';
-      }
-
-      function enhanceDocumentLayout() {
-        var article = document.querySelector('.markdown-section');
-        var content = document.querySelector('.content');
-        if (!article || !content) return;
-        var isChinese = /^#\/zh/.test(location.hash);
-        var path = (location.hash || '#/').replace(/^#\/(zh\/?)?/, '').replace(/\?.*$/, '').replace(/\/$/, '');
-        var isHome = !path;
-        document.body.classList.toggle('is-overview', isHome);
-        var prefix = isChinese ? '#/zh/' : '#/';
-        var title = article.querySelector('h1');
-        var topbar = content.querySelector('.docs-topbar');
-        if (!topbar) {
-          topbar = document.createElement('header');
-          topbar.className = 'docs-topbar';
-          content.prepend(topbar);
-        }
-        topbar.innerHTML = '<nav class="doc-breadcrumb" aria-label="Breadcrumb"><a></a><span aria-hidden="true">/</span><span class="breadcrumb-page" aria-current="page"></span></nav><span class="topbar-label"></span>';
-        topbar.querySelector('a').href = prefix;
-        topbar.querySelector('a').textContent = isChinese ? '\u6587\u6863' : 'Documentation';
-        topbar.querySelector('.breadcrumb-page').textContent = isHome ? (isChinese ? '\u6982\u89c8' : 'Overview') : title.textContent;
-        topbar.querySelector('.topbar-label').textContent = isChinese ? '\u8bbe\u7f6e\u4e0e\u652f\u6301' : 'SETUP & SUPPORT';
-
-        var layout = content.querySelector('.docs-layout');
-        if (!layout) {
-          layout = document.createElement('div');
-          layout.className = 'docs-layout';
-          article.before(layout);
-          layout.appendChild(article);
-        }
-        if (outlineScrollHandler) window.removeEventListener('scroll', outlineScrollHandler);
-        layout.querySelectorAll('.page-outline').forEach(function(node) { node.remove(); });
-        article.querySelectorAll('.page-navigation').forEach(function(node) { node.remove(); });
-
-        if (path === 'enable-tpm' && !article.querySelector('.brand-grid')) {
-          var brandHeadings = Array.from(article.querySelectorAll('h3'));
-          if (brandHeadings.length) {
-            var grid = document.createElement('div');
-            grid.className = 'brand-grid';
-            brandHeadings[0].before(grid);
-            brandHeadings.forEach(function(heading) {
-              var panel = document.createElement('section');
-              panel.className = 'brand-panel';
-              grid.appendChild(panel);
-              var next = heading.nextElementSibling;
-              panel.appendChild(heading);
-              while (next && !/^H[23]$/.test(next.tagName)) {
-                var following = next.nextElementSibling;
-                panel.appendChild(next);
-                next = following;
-              }
-            });
-          }
-        }
-
-        document.querySelectorAll('.sidebar-nav > ul > li').forEach(function(item) {
-          var link = item.querySelector('a');
-          if (!link) return;
-          var linkPath = link.getAttribute('href').split('?')[0].replace(/\/$/, '');
-          var currentPath = (prefix + path).replace(/\/$/, '');
-          item.classList.toggle('current-page', linkPath === currentPath);
-          if (!link.querySelector('.nav-icon')) {
-            var pageIcon = document.createElement('span');
-            pageIcon.className = 'nav-icon';
-            var names = {'before-redemption': 'key', 'getting-started': 'book', 'enable-tpm': 'chip', 'troubleshooting': 'help'};
-            pageIcon.innerHTML = icon(names[linkPath.split('/').pop()] || 'home');
-            pageIcon.setAttribute('aria-hidden', 'true');
-            link.prepend(pageIcon);
-          }
-        });
-
-        if (!isHome) {
-          var headings = Array.from(article.querySelectorAll(path === 'enable-tpm' ? 'h2, h3' : 'h2'));
-          var outline = document.createElement('aside');
-          outline.className = 'page-outline';
-          outline.innerHTML = '<nav class="outline-nav"><p class="outline-title"></p></nav>';
-          var nav = outline.querySelector('nav');
-          var outlineLabel = isChinese ? '\u672c\u9875\u5185\u5bb9' : 'ON THIS PAGE';
-          nav.setAttribute('aria-label', outlineLabel);
-          nav.querySelector('p').textContent = outlineLabel;
-          headings.forEach(function(heading) {
-            var link = document.createElement('a');
-            link.textContent = heading.textContent;
-            link.href = prefix + path + '?id=' + encodeURIComponent(heading.id);
-            link.dataset.heading = heading.id;
-            if (heading.tagName === 'H3') link.className = 'outline-child';
-            nav.appendChild(link);
-          });
-          layout.appendChild(outline);
-          function updateOutline() {
-            if (!headings.length) return;
-            var current = headings[0];
-            headings.forEach(function(heading) {
-              if (heading.getBoundingClientRect().top <= 135) current = heading;
-            });
-            var selectedId = new URLSearchParams(location.hash.split('?')[1] || '').get('id');
-            var selectedHeading = headings.find(function(heading) { return heading.id === selectedId; });
-            if (selectedHeading && Math.abs(selectedHeading.getBoundingClientRect().top - current.getBoundingClientRect().top) < 2) current = selectedHeading;
-            var activeId = current.id;
-            nav.querySelectorAll('a').forEach(function(link) {
-              var active = link.dataset.heading === activeId;
-              link.classList.toggle('is-current', active);
-              if (active) link.setAttribute('aria-current', 'location');
-              else link.removeAttribute('aria-current');
-            });
-          }
-          var outlineFramePending = false;
-          outlineScrollHandler = function() {
-            if (outlineFramePending) return;
-            outlineFramePending = true;
-            requestAnimationFrame(function() { updateOutline(); outlineFramePending = false; });
-          };
-          window.addEventListener('scroll', outlineScrollHandler, { passive: true });
-          updateOutline();
-
-          var pages = ['', 'before-redemption', 'getting-started', 'enable-tpm', 'troubleshooting'];
-          var labels = isChinese ? ['\u6982\u89c8', '\u5151\u6362\u524d\u987b\u77e5', '\u65b0\u624b\u5165\u95e8', 'TPM 2.0 \u8bbe\u7f6e', '\u6545\u969c\u6392\u67e5'] : ['Overview', 'Before Redemption', 'Getting Started', 'TPM 2.0 Setup', 'Troubleshooting'];
-          var pageIndex = pages.indexOf(path);
-          if (pageIndex > 0) {
-            var footer = document.createElement('nav');
-            footer.className = 'page-navigation';
-            footer.setAttribute('aria-label', isChinese ? '\u6307\u5357\u5bfc\u822a' : 'Guide navigation');
-            [-1, 1].forEach(function(direction) {
-              var target = pageIndex + direction;
-              if (target < 0 || target >= pages.length) return;
-              var link = document.createElement('a');
-              link.href = prefix + pages[target];
-              link.className = direction === 1 ? 'next-guide' : 'previous-guide';
-              var caption = document.createElement('span');
-              caption.textContent = isChinese ? (direction === 1 ? '\u4e0b\u4e00\u7bc7' : '\u4e0a\u4e00\u7bc7') : (direction === 1 ? 'Next guide' : 'Previous guide');
-              var name = document.createElement('strong');
-              name.textContent = labels[target];
-              link.append(caption, name);
-              footer.appendChild(link);
-            });
-            article.appendChild(footer);
-          }
-        }
-      }
-
-      function updateActiveNavigation() {
-        var currentHash = decodeURI(location.hash || '#/').replace(/\/$/, '');
-        var links = Array.from(document.querySelectorAll('.sidebar-nav a'));
-        var match = null;
-
-        document.querySelectorAll('.sidebar-nav li.active').forEach(function(item) {
-          item.classList.remove('active');
-        });
-        links.forEach(function(link) {
-          link.removeAttribute('aria-current');
-          if (decodeURI(link.getAttribute('href') || '').replace(/\/$/, '') === currentHash) {
-            match = link;
-          }
-        });
-
-        if (!match) {
-          var currentPath = currentHash.replace(/\?.*$/, '');
-          match = links.find(function(link) {
-            return decodeURI(link.getAttribute('href') || '').replace(/\/$/, '') === currentPath;
-          }) || null;
-        }
-
-        if (match) {
-          match.closest('li').classList.add('active');
-          match.setAttribute('aria-current', 'page');
-        }
-      }
-
-      function enhancePageSemantics() {
-        var sidebar = document.querySelector('.sidebar');
-        var main = document.querySelector('main');
-        var search = document.querySelector('.search input');
-        var toggle = document.querySelector('.sidebar-toggle');
-        var activeLink = document.querySelector('.sidebar-nav li.active > a, .sidebar-nav li.active > p > a');
-        var isChinese = (location.hash || '#/').indexOf('#/zh') === 0;
-
-        if (sidebar) {
-          sidebar.id = 'docs-sidebar';
-          sidebar.setAttribute('aria-label', isChinese ? '\u6587\u6863\u5bfc\u822a' : 'Documentation navigation');
-        }
-
-        if (main) main.setAttribute('aria-label', isChinese ? '\u6587\u6863\u5185\u5bb9' : 'Documentation content');
-        if (search) search.setAttribute('aria-label', isChinese ? '\u641c\u7d22\u6587\u6863' : 'Search documentation');
-
-        document.querySelectorAll('.sidebar-nav a[aria-current]').forEach(function(link) {
-          link.removeAttribute('aria-current');
-        });
-        if (activeLink) activeLink.setAttribute('aria-current', 'page');
-
-        if (toggle) {
-          toggle.setAttribute('aria-label', isChinese ? '\u6253\u5f00\u6587\u6863\u5bfc\u822a' : 'Open documentation navigation');
-          toggle.setAttribute('aria-controls', 'docs-sidebar');
-        }
-
-        initializeNavigationAccessibility();
-      }
-
-      function initializeNavigationAccessibility() {
-        if (document.body.dataset.navigationA11y === 'true') {
-          syncNavigationAccessibility();
-          return;
-        }
-
-        document.body.dataset.navigationA11y = 'true';
-
-        var skipLink = document.querySelector('.skip-link');
-        if (skipLink) {
-          skipLink.addEventListener('click', function() {
-            var heading = document.querySelector('.markdown-section h1');
-            if (!heading) return;
-            heading.setAttribute('tabindex', '-1');
-            heading.focus();
-            heading.scrollIntoView({ block: 'start' });
-          });
-        }
-
-        new MutationObserver(syncNavigationAccessibility).observe(document.body, {
-          attributes: true,
-          attributeFilter: ['class']
-        });
-        window.addEventListener('resize', syncNavigationAccessibility);
-        window.addEventListener('hashchange', updateActiveNavigation);
-        syncNavigationAccessibility();
-      }
-
-      function syncNavigationAccessibility() {
-        var sidebar = document.querySelector('.sidebar');
-        var toggle = document.querySelector('.sidebar-toggle');
-        var isMobile = window.matchMedia('(max-width: 768px)').matches;
-        var isOpen = !isMobile || document.body.classList.contains('close');
-        var isChinese = (location.hash || '#/').indexOf('#/zh') === 0;
-
-        if (sidebar) {
-          if (isMobile && !isOpen) {
-            sidebar.setAttribute('inert', '');
-            sidebar.setAttribute('aria-hidden', 'true');
-          } else {
-            sidebar.removeAttribute('inert');
-            sidebar.removeAttribute('aria-hidden');
-          }
-        }
-
-        if (toggle) {
-          toggle.setAttribute('aria-expanded', String(isOpen));
-          toggle.setAttribute(
-            'aria-label',
-            isChinese
-              ? (isOpen ? '\u5173\u95ed\u6587\u6863\u5bfc\u822a' : '\u6253\u5f00\u6587\u6863\u5bfc\u822a')
-              : (isOpen ? 'Close documentation navigation' : 'Open documentation navigation')
-          );
-        }
-      }
-
-      function enhanceBrand() {
-        var link = document.querySelector('.app-name-link');
-        if (!link || link.querySelector('.brand-mark')) return;
-
-        link.innerHTML =
-          '<span class="brand-mark" aria-hidden="true">W</span>' +
-          '<span class="brand-copy">' +
-            '<span class="brand-name">WardenGG</span>' +
-            '<span class="brand-context">Documentation</span>' +
-          '</span>';
-        link.setAttribute('aria-label', 'WardenGG documentation home');
-      }
-
-      function createLanguageSwitch() {
-        var appName = document.querySelector('.app-name');
-        if (!appName) return false;
-        if (document.querySelector('.lang-switch')) return true;
-
-        var languageSwitch = document.createElement('nav');
-        languageSwitch.className = 'lang-switch';
-        languageSwitch.setAttribute('aria-label', 'Language');
-        languageSwitch.innerHTML =
-          '<a class="lang-btn" data-lang="en" lang="en" href="#/">English</a>' +
-          '<a class="lang-btn" data-lang="zh" lang="zh-CN" href="#/zh/">\u7b80\u4f53\u4e2d\u6587</a>';
-        appName.after(languageSwitch);
-
-        languageSwitch.addEventListener('click', function(event) {
-          var button = event.target.closest('.lang-btn');
-          if (!button) return;
-
-          event.preventDefault();
-          var hash = location.hash || '#/';
-          var isChinese = hash.indexOf('#/zh') === 0;
-          var page = isChinese
-            ? hash.replace(/^#\/zh\/?/, '')
-            : hash.replace(/^#\//, '');
-          page = page.replace(/\?.*$/, '');
-
-          if (button.dataset.lang === 'zh') {
-            location.hash = '#/zh/' + page;
-          } else {
-            location.hash = '#/' + page;
-          }
-        });
-
-        return true;
-      }
-
-      function updateLanguageState() {
-        var hash = location.hash || '#/';
-        var isChinese = hash.indexOf('#/zh') === 0;
-        var page = (isChinese
-          ? hash.replace(/^#\/zh\/?/, '')
-          : hash.replace(/^#\//, '')).replace(/\?.*$/, '');
-        var homeLink = document.querySelector('.app-name-link');
-        var search = document.querySelector('.search input');
-        var languageSwitch = document.querySelector('.lang-switch');
-        var skipLink = document.querySelector('.skip-link');
-        var mobileHeader = document.querySelector('.mobile-header');
-
-        document.documentElement.lang = isChinese ? 'zh-CN' : 'en';
-        document.title = isChinese ? 'WardenGG 文档' : 'WardenGG Documentation';
-
-        document.querySelectorAll('.lang-btn').forEach(function(button) {
-          var isActive = (button.dataset.lang === 'zh') === isChinese;
-          button.classList.toggle('active', isActive);
-
-          if (isActive) {
-            button.setAttribute('aria-current', 'true');
-          } else {
-            button.removeAttribute('aria-current');
-          }
-
-          button.href = button.dataset.lang === 'zh'
-            ? '#/zh/' + page
-            : '#/' + page;
-        });
-
-        if (homeLink) {
-          homeLink.href = isChinese ? '#/zh/' : '#/';
-          homeLink.setAttribute('aria-label', isChinese ? 'WardenGG 文档首页' : 'WardenGG documentation home');
-        }
-
-        if (languageSwitch) languageSwitch.setAttribute('aria-label', isChinese ? '语言' : 'Language');
-        if (skipLink) skipLink.textContent = isChinese ? '跳至正文' : 'Skip to content';
-        if (mobileHeader) mobileHeader.textContent = isChinese ? 'WardenGG 文档' : 'WardenGG Documentation';
-
-        if (search) {
-          search.placeholder = isChinese ? '\u641c\u7d22\u6587\u6863' : 'Search documentation';
-          search.setAttribute('aria-label', search.placeholder);
-        }
-      }
-    }
-
-    window.$docsify = {
-      name: 'WardenGG',
-      repo: '',
-      loadSidebar: true,
-      subMaxLevel: 0,
-      auto2top: true,
-      topMargin: 100,
-      search: {
-        namespace: 'wardengg-docs-v3',
-        placeholder: {
-          '/zh/': '搜索文档',
-          '/': 'Search documentation'
-        },
-        noData: {
-          '/zh/': '没有找到结果。',
-          '/': 'No results found.'
-        },
-        paths: 'auto'
-      },
-      plugins: [wggPlugin, wggMotion]
-    };
-  </script>
+  <header class="site-header">
+    <div class="topline">
+      <a class="brand" href="#/"><img src="assets/favicon.svg" width="32" height="32" alt=""><span>WardenGG <span class="brand-label">Docs</span></span></a>
+      <div class="header-actions">
+        <button id="search-open" class="search-open" type="button" aria-haspopup="dialog">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="5.5"/><path d="m15 15 4 4"/></svg>
+          <span>Search docs</span><kbd>/</kbd>
+        </button>
+        <a id="language" lang="zh-CN" href="#/zh/">简体中文</a>
+      </div>
+    </div>
+    <nav class="product-nav" aria-label="Products">
+      <a data-product="home" href="#/">Overview</a>
+      <a data-product="wow" href="#/wow">World of Warcraft</a>
+      <a data-product="overwatch" href="#/overwatch">Overwatch 2</a>
+    </nav>
+  </header>
+  <div class="reading-shell">
+    <button class="nav-toggle" type="button" aria-controls="guide-sidebar" aria-expanded="false">Browse guides</button>
+    <aside id="guide-sidebar" class="guide-sidebar">
+      <nav id="guide-nav" aria-label="Documentation"></nav>
+    </aside>
+    <div id="app"><p class="loading">Loading documentation…</p></div>
+    <aside class="page-outline" id="page-outline" aria-label="On this page" hidden></aside>
+  </div>
+  <dialog id="doc-search" aria-labelledby="search-heading">
+    <div class="search-heading">
+      <h2 id="search-heading">Search documentation</h2>
+      <form method="dialog"><button class="search-close" type="submit" aria-label="Close search">×</button></form>
+    </div>
+    <label class="visually-hidden" for="search-query">Search documentation</label>
+    <input id="search-query" type="search" placeholder="Search by keyword" autocomplete="off" autofocus>
+    <p id="search-status" role="status"></p>
+    <ul id="search-results"></ul>
+  </dialog>
+  <noscript><p class="loading">Enable JavaScript to read the documentation.</p></noscript>
+  <script src="docs.js?v=20261120"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code@2/dist/docsify-copy-code.min.js"></script>
 </body>
 </html>
