@@ -1,22 +1,24 @@
 # Overwatch 2 External
 
-Find the WardenGG setup steps and a reference for each area of the Overwatch menu.
+Setup steps, calibration, and menu reference for WGG Overwatch 2 External.
 
 ## Start here
 
-Read [Getting started](overwatch-setup.md) to open the menu, check your display, calibrate sensitivity and make sure your settings are being saved.
+1. **First time setting up WGG on this PC?** Complete [System Requirements & Preparations](getting-started.md#preparations) (Windows 10/11 Pro, TPM 2.0, Defender/AV off, Vulnerable Driver Blocklist off, HVCI off, Secure Boot off). These PC steps are identical to WoW, and **Overwatch 2 does not use script files**.
+2. **Ready to launch?** Follow [Overwatch 2 First Steps](overwatch-setup.md) for the illustrated 5-step video settings, preset selection, and mouse calibration guide.
 
 ## Menu reference
 
-| Menu area | What you’ll find |
+| Menu area | What you will find |
 | --- | --- |
-| [Hero schemes](overwatch-hero-schemes.md) | How the global fallback, individual hero profiles, aim slots, trigger and target rules relate to each other. |
-| [Skills, combos and alerts](overwatch-combos.md) | How to read the visual combo editor, understand condition branches and manage notifications. |
-| [Visuals and display](overwatch-display.md) | Player and world overlays, radar, field-of-view rings and display alignment. |
-| [Settings and profiles](overwatch-settings.md) | Switching or creating a profile, menu shortcuts, presets and diagnosing configuration issues. |
+| [First steps & calibration](overwatch-setup.md) | Video settings, launcher flow, Legit/Semi-Legit/Rage presets, and mouse sensitivity calibration. |
+| [Hero schemes](overwatch-hero-schemes.md) | Global fallback vs individual hero profiles, aim slots, trigger, and target priority rules. |
+| [Skills, combos and alerts](overwatch-combos.md) | Reading the visual combo editor, condition branches, and enemy ability/ultimate notifications. |
+| [Visuals and display](overwatch-display.md) | Player and world overlays, radar, field-of-view rings, and display alignment. |
+| [Settings and profiles](overwatch-settings.md) | Creating or switching profiles, toggle hotkeys, presets, and diagnosing config issues. |
 
 ![WardenGG Overwatch 2 External menu showing the combo editor and hero selection sidebar](overwatch-menu.webp)
 
 ## Support
 
-Open a ticket in **#technical-support** on Discord. Include your launcher version, game region or build, selected profile and hero, and the name of the menu or control involved. Crop private account details and local paths from any screenshot.
+Open a ticket in **#support** on Discord if you run into an issue. Include your Windows version, selected preset and hero, and what went wrong. Crop private account details and local paths from screenshots.

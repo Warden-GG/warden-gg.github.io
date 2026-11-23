@@ -1,24 +1,21 @@
 - [Overview](/)
 
-- [Before Redemption](before-redemption.md)
-  - [TPM 2.0 Requirement](before-redemption.md#tpm-20-requirement)
-  - [Managing Scripts](before-redemption.md#how-do-i-manage-my-scripts)
-  - [After Redeeming](before-redemption.md#what-do-i-do-after-redeeming-my-key)
-  - [HWID Resets](before-redemption.md#how-many-hwid-resets-do-i-get)
+- **Launcher & PC Setup**
+  - [Getting Started](getting-started.md)
+  - [Before Redemption](before-redemption.md)
+  - [TPM 2.0 Setup](enable-tpm.md)
+  - [Launcher Troubleshooting](troubleshooting.md)
 
-- [Getting Started](getting-started.md)
-  - [Requirements](getting-started.md#requirements)
-  - [Preparations](getting-started.md#preparations)
-  - [Install and Launch](getting-started.md#install-and-launch)
+- **World of Warcraft**
+  - [WoW Overview](wow.md)
+  - [Scripts & Management](wow-scripts.md)
+  - [Launching WoW](wow-launch.md)
+  - [WoW Troubleshooting](wow-troubleshooting.md)
 
-- [TPM 2.0 Setup](enable-tpm.md)
-  - [Check in Windows](enable-tpm.md#check-in-windows-first)
-  - [Motherboard Brands](enable-tpm.md#enable-tpm-by-motherboard-brand)
-  - [Find Your Model and Manual](enable-tpm.md#find-your-model-and-manual)
-
-- [Troubleshooting](troubleshooting.md)
-  - [Error 264](troubleshooting.md#error-264)
-  - [Driver Loading Failed](troubleshooting.md#driver-loading-failed)
-  - [Injection Failed](troubleshooting.md#injection-failed-try-again)
-  - [Rotation Not Loading](troubleshooting.md#rotation-not-loading)
-  - [Unsupported WoW Version](troubleshooting.md#unsupported-wow-version)
+- **Overwatch 2**
+  - [Overwatch Overview](overwatch.md)
+  - [First Steps & Calibration](overwatch-setup.md)
+  - [Hero Schemes](overwatch-hero-schemes.md)
+  - [Skills, Combos and Alerts](overwatch-combos.md)
+  - [Visuals and Display](overwatch-display.md)
+  - [Settings and Profiles](overwatch-settings.md)

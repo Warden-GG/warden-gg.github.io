@@ -1,23 +1,24 @@
 # Getting Started
 
+This guide covers shared Windows setup and launching **WardenGG** for **both World of Warcraft and Overwatch 2**. System requirements and PC preparations (TPM 2.0, Defender/AV, Vulnerable Driver Blocklist, HVCI, and Secure Boot) are identical for both games up through starting the WardenGG Launcher.
+
 ## Requirements
 
-> **TPM 2.0 is required**
+> **TPM 2.0 is required for both WoW and Overwatch 2**
 >
-> The unlocker now requires TPM 2.0. You cannot use the unlocker without TPM 2.0.
->
-> Follow [Enable TPM 2.0](enable-tpm.md) to check your PC and find the settings for your motherboard brand.
+> You cannot run WardenGG without TPM 2.0 enabled. Follow [Enable TPM 2.0](enable-tpm.md) to verify your PC and find the BIOS setting for your motherboard brand.
 
-Before you begin, make sure your system meets the following:
+Before you begin, make sure your PC meets all of the following:
 
-- **Windows 10 Pro (22H2)** or **Windows 11 Pro (24H2 or 25H2)**. Windows Home and other editions are not supported.
-- World of Warcraft Retail (EU/US/CN)
-- WardenGG Launcher - download from your Dashboard
-- Everything must be run as Administrator
+- **Windows 10 Pro (22H2)** or **Windows 11 Pro (22H2, 24H2, or 25H2)**. Windows Home and other editions are not supported.
+- **TPM 2.0** enabled in BIOS/UEFI.
+- **World of Warcraft** (Retail, Classic MoP, or WoW Forever Beta) and/or **Overwatch 2**.
+- **WardenGG Launcher** downloaded from your User Dashboard.
+- Run the launcher as **Administrator**.
 
 ## Preparations
 
-Complete all of these steps **before** installing or launching anything.
+Complete every step below **before** launching World of Warcraft or Overwatch 2 with WardenGG. These steps are the same for both games.
 
 ### Step 1 - Download Defender Control
 
@@ -33,23 +34,25 @@ Fully uninstall any third-party antivirus programs, restart your PC, and continu
 
 ### Step 4 - Disable the Vulnerable Driver Blocklist
 
-Run the following in an elevated CMD or PowerShell:
+Run this command in an elevated CMD or PowerShell:
+
 ```powershell
-reg add HKLM\SYSTEM\CurrentControlSet\CI\Config /v "VulnerableDriverBlocklistEnable" /t REG_DWORD /d 0 /f
+reg add HKLM\SYSTEM\CurrentControlSet\Control\CI\Config /v "VulnerableDriverBlocklistEnable" /t REG_DWORD /d 0 /f
 ```
 
 ### Step 5 - Disable Core Isolation / Memory Integrity (HVCI)
 
-Run the following in an elevated CMD or PowerShell:
+Run this command in an elevated CMD or PowerShell:
+
 ```powershell
 reg add HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity /v "Enabled" /t REG_DWORD /d 0 /f
 ```
 
 ### Step 6 - Enable Hyper-V Dependencies
 
-Run the Hyper-V script found in the **#scripts** channel on Discord.
+Run the Hyper-V script or `SystemChecker.exe` from Discord.
 
-> ⚠️ If you are using VM Compliant you can skip this.
+> If you are using VM Compliant, you can skip this step.
 
 ### Step 7 - Reboot & Disable Secure Boot
 
@@ -57,71 +60,67 @@ Run the Hyper-V script found in the **#scripts** channel on Discord.
 2. Enter your UEFI/BIOS settings.
 3. Locate and disable **Secure Boot**.
 
-> ⚠️ Make sure all overlays are disabled before launching. This includes Nvidia Overlay, Xbox GameBar, Discord Overlay, and Medal.tv.
+> Disable overlays before launching (Nvidia Overlay, Xbox Game Bar, Discord Overlay, Medal.tv).
 
-Once all steps above are complete, move on to installation.
+Once all preparation steps above are complete, continue to installation and launch below.
 
 ---
 
 ## Install and Launch
 
-### Step 1 - Set Your Script Location
+> **Playing Overwatch 2?**
+>
+> Script folders and `.wgg` / `.lua` script files are for **World of Warcraft only**. Overwatch 2 does not use script files. Download the launcher in **Step 2**, skip Steps 1 and 3, and continue directly at **Step 4**.
 
-Before anything else, log in to the website and head to your **User Dashboard > Settings > Script Location**.
+### Step 1 - Set Your Script Location (World of Warcraft Only)
 
-Choose the actual folder where you will keep your scripts and enter its full path. For example, if your Windows username is `Alex` and your scripts are in the `Scripts` folder under Documents, enter `C:/Users/Alex/Documents/Scripts`. Replace this example with the path to your own folder.
+*Skip this step if you only play Overwatch 2.*
 
-- Use a **local absolute path** that starts with a drive letter.
-- Use **forward slashes (`/`) only**, not backslashes (`\`).
-- Create the folder if it does not exist, and make sure your script files are inside it.
-- Network paths, `..` and special characters are not allowed.
+Go to **User Dashboard > Settings > Script Location**, enter your local script folder path using forward slashes only (for example `C:/Users/Alex/Documents/Scripts`), and click **Save**. Full rules and script toggling instructions are in [Scripts & Management](wow-scripts.md).
 
-Click **Save**. You must set and save a script location before logging in to the launcher. Leaving it empty causes [login error 430](troubleshooting.md#error-430-no-script-location-set).
+### Step 2 - Download the Launcher
 
-### Step 2 - Download Your Files
+Go to **User Dashboard > Downloads** and download:
 
-Head to your **User Dashboard > Downloads** and grab:
+- **WardenGG Launcher** (required for both World of Warcraft and Overwatch 2)
+- Your script archive *(World of Warcraft only)*
 
-- `UNLKR.exe`
-- Your script archive
+### Step 3 - Place Script Files (World of Warcraft Only)
 
-### Step 3 - Place the Files
+*Skip this step if you only play Overwatch 2.*
 
-- `UNLKR.exe` - save this anywhere you like.
-- Your script archive - extract it into **the script location folder you set in Step 1**, so that `_your-script.wgg` sits directly inside that folder.
+- Save the **WardenGG Launcher** anywhere on your PC.
+- Extract your WoW scripts into your Step 1 script folder so files starting with an underscore (`_your-script.wgg`) sit directly inside it. See [Scripts & Management](wow-scripts.md) for `_` prefix rules, `.wggBAK` disabling, and `F3` reloads.
 
-  Example: if you set your script location to `C:/Users/Alex/Documents/Scripts`, extract it so that the file lands at `C:/Users/Alex/Documents/Scripts/_your-script.wgg`.
+### Step 4 - Run the WardenGG Launcher (WoW & Overwatch 2)
 
-If the folder doesn't exist yet, create it manually — it must match the path you entered in Settings exactly.
+1. Right-click the **WardenGG Launcher** and select **Run as Administrator**.
+2. Sign in with your registered WGG account.
+3. Select **World of Warcraft** or **Overwatch 2** in the launcher and press **Launch / Inject**.
 
-> ℹ️ The unlocker only loads files with a `.wgg` or `.lua` extension that start with an underscore (`_`). Multiple scripts can run simultaneously.
+### Step 5 - Launch Your Game
 
-### Step 4 - Run the Launcher
+#### World of Warcraft
 
-1. Right-click `UNLKR.exe` and run it as Administrator.
-2. Log in with your registered account.
-3. Click **Inject**.
+1. Wait until the launcher reads **"Waiting for WoW..."**, then start World of Warcraft via Battle.net.
+2. The launcher attaches automatically and closes; in-game chat prints `[+] WGG-Core Ready!` and loads your active scripts.
+3. Press **F3** after any `/reload` to reload scripts.
 
-### Step 5 - Launch WoW
+Full WoW launch checklist: [Launching WoW](wow-launch.md).
 
-Once the status reads **"Waiting for WoW..."**, start World of Warcraft. You can launch through the Battle.net Launcher or directly via the WoW `.exe`, both work.
+#### Overwatch 2
 
-### Step 6 - You're In
+1. Before launching with WGG the first time, open Overwatch 2, set **V-Sync** to **OFF** and **Display Mode** to **Fullscreen (Windowed)**, save, and **close Overwatch 2 completely**.
+2. In the WardenGG Launcher, select **Overwatch 2**, press **Launch**, wait for **"Waiting for Overwatch"**, then start Overwatch 2.
+3. Enter **Practice Range**, pick a hero, and press **Home** (`Pos1` on German/ISO keyboards) to open the menu.
+4. Pick a top-bar preset (`Legit`, `Semi-Legit`, or `Rage`), open **Advanced > Settings > Mouse & Sensitivity**, keep **Auto-Read from Game** turned **OFF**, click **Read**, then click **Calibrate**.
 
-- The injection will begin and the launcher will close automatically.
-- In-game chat will display: `[+] WGG-Core Ready!`
-- All `.wgg` and `.lua` files in **your configured script location** will load automatically (e.g. `_your-script.wgg`, `_phoenix.wgg`).
-
-> 💡 You can change your script location anytime in **Settings**. The change takes effect within ~30 seconds while a session is running (it applies on the next in-game reload or zone change) — no need to log out.
-
----
-
-## Scripts After /reload
-
-After every `/reload` in-game, you'll need to press **F3** to reload your scripts manually.
+Illustrated walkthrough with screenshots: [Overwatch 2 First Steps](overwatch-setup.md).
 
 ---
 
 ## Need Help?
 
-Check the [Troubleshooting](troubleshooting.md) page first. If nothing there helps, open a ticket in **#technical-support** on Discord.
+- Launcher-wide errors (Error 264, Driver Loading Failed, server connection): [Launcher Troubleshooting](troubleshooting.md).
+- World of Warcraft errors (Error 430, `wow.exe`, rotations, client versions): [WoW Troubleshooting](wow-troubleshooting.md).
+- Still stuck? Open a ticket in **#support** on Discord with your game, Windows version, and exact error message.

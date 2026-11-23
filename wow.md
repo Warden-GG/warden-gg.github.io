@@ -1,17 +1,23 @@
 # World of Warcraft
 
-Setup guides, script management, and troubleshooting. Start with the requirements, then follow the guide step by step.
+Setup guides, script management, launch steps, and WoW-specific troubleshooting for WGG External.
 
-> **TPM 2.0 is now required**
->
-> You cannot use the unlocker without TPM 2.0. Check your system meets this requirement before redeeming a key or starting setup.
->
-> Need help? [Check and enable TPM 2.0](enable-tpm.md) with instructions for ASUS, MSI, Gigabyte/AORUS, and ASRock.
+## Start here
 
-## Find your next step
+1. **First time setting up WardenGG on this PC?** Complete [Getting Started & PC Preparations](getting-started.md#preparations) (Windows 10/11 Pro, TPM 2.0, Defender/AV off, Vulnerable Driver Blocklist off, HVCI off, Secure Boot off).
+2. **Setting up scripts?** Follow [Scripts & Management](wow-scripts.md) to configure your Script Location, place `_*.wgg`/`.lua` files, toggle scripts with `BAK`, and reload with `F3`.
+3. **Ready to play?** Follow [Launching WoW](wow-launch.md) for the Battle.net launch order and `[+] WGG-Core Ready!` confirmation.
+4. **Hitting a WoW error?** Check [WoW Troubleshooting](wow-troubleshooting.md) for Error 430, leftover `wow.exe`, missing rotations, and `product.db` version issues.
 
-1. [Before Redemption](before-redemption.md) - Read the requirements and key information before you redeem.
-2. [Getting Started](getting-started.md) - Prepare your system, install the launcher, and load your scripts.
-3. [Troubleshooting](troubleshooting.md) - Find help with launcher errors, loading issues, and common problems.
+## WoW guides
 
-**Still need help?** Open a ticket in **#technical-support** on Discord after checking the relevant guide.
+| Guide | What it covers |
+| --- | --- |
+| [Scripts & management](wow-scripts.md) | Dashboard Script Location, forward-slash rules, `_` prefix loading, `.wggBAK`, and `F3` after `/reload`. |
+| [Launching WoW](wow-launch.md) | Supported Retail/Classic clients, Plugins setting, English client check, and Battle.net launch sequence. |
+| [WoW troubleshooting](wow-troubleshooting.md) | Error 430, Injection Failed (`wow.exe`), Rotation Not Loading, `product.db` / Unsupported WoW Version, and crash dumps. |
+| [Launcher troubleshooting](troubleshooting.md) | Launcher-wide fixes shared with Overwatch 2 (Error 264, Driver Loading Failed, server connection issues). |
+
+## Support
+
+Open a ticket in **#support** on Discord after checking the relevant guide. Include your Windows version, WoW client (`Retail`, `Classic MoP`, or `Forever`), and the exact error message.

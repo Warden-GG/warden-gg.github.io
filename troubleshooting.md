@@ -1,31 +1,23 @@
-# Troubleshooting
+# Launcher Troubleshooting
 
-Before opening a ticket, work through the relevant section below. If nothing here resolves your issue, open a ticket in **#technical-support** on Discord.
+These fixes apply to the **WardenGG Launcher** across both **World of Warcraft** and **Overwatch 2**. Work through the relevant section below before opening a ticket in **#support** on Discord.
 
----
-
-## Error 430 - No Script Location Set
-
-Error **430** during login means no script location is set in your User Dashboard.
-
-1. Log in to the website and open **User Dashboard > Settings > Script Location**.
-2. Enter the full path to the actual folder where you keep your scripts. Use a local absolute path with a drive letter, such as `C:/Users/Alex/Documents/Scripts`, adjusted to your own username and folder.
-3. Use **forward slashes (`/`) only**, not backslashes (`\`).
-4. Click **Save**, then try logging in to the launcher again.
-
-**`C:/WGG` is a placeholder and must not be used as your script location.** Replace any example path with your actual folder path. Do not leave the field empty.
-
-See [Set Your Script Location](getting-started.md#step-1-set-your-script-location) for setup instructions.
+> Looking for WoW-only issues (Error 430 script location, leftover `wow.exe`, missing rotations, or `product.db` / Unsupported WoW Version)? See [WoW Troubleshooting](wow-troubleshooting.md).
 
 ---
 
 ## Error 264
 
+Error **264** occurs when Windows Code Integrity, HVCI, or Exploit Guard rules block the launcher driver.
+
 ### Step 1 - Open PowerShell as Administrator
+
 Right-click the Start menu and select **Windows PowerShell (Admin)** or **Terminal (Admin)**.
 
 ### Step 2 - Run the Following Commands
-Copy and paste all of the following into PowerShell and hit Enter:
+
+Copy and paste all five lines into PowerShell and press Enter:
+
 ```powershell
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\CI\Config" /v VulnerableDriverBlocklistEnable /t REG_DWORD /d 0 /f
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity" /v Enabled /t REG_DWORD /d 0 /f
@@ -36,78 +28,43 @@ Remove-Item -Path "C:\Windows\System32\CodeIntegrity\driversipolicy.p7b" -Force 
 
 ### Step 3 - Reboot Your PC
 
-### Step 4 - Retry
-Launch `UNLKR.exe` again and attempt to inject.
+Restart Windows completely so the registry and Code Integrity changes apply.
 
-> ⚠️ Still not working? Open a ticket in **#technical-support**.
+### Step 4 - Retry
+
+Run the **WardenGG Launcher** as Administrator again and select your game.
+
+> Still hitting Error 264 after rebooting? Open a ticket in **#support** on Discord.
 
 ---
 
 ## Driver Loading Failed
 
-Make sure both of the following are true:
+Verify all three of the following on your PC:
 
-- The **Vulnerable Driver Blocklist** is disabled. See [Step 4 in Getting Started](getting-started.md#step-4-disable-the-vulnerable-driver-blocklist) for the exact registry commands.
-- **All antivirus software is fully disabled or uninstalled.** If disabling isn't enough, uninstall it completely, restart your PC, and try again.
-
----
-
-## Injection Failed: Try Again
-
-A leftover WoW process is likely still running in the background.
-
-1. Open **Task Manager** (`Ctrl + Shift + Esc`).
-2. Look for any `wow.exe` process.
-3. End the process.
-4. Try injecting again.
+- The **Vulnerable Driver Blocklist** is disabled. See [Step 4 in Getting Started](getting-started.md#step-4-disable-the-vulnerable-driver-blocklist) or run the Error 264 commands above.
+- **All antivirus software is fully disabled or uninstalled.** Windows Defender must be disabled with Defender Control, and any third-party antivirus must be uninstalled completely followed by a reboot.
+- **Secure Boot** is disabled in UEFI/BIOS.
 
 ---
 
-## Rotation Not Loading
+## Connection to Server Failed (`CONNECTION_FAILED`)
 
-Two things to check:
+The WardenGG Launcher could not reach the authentication server.
 
-1. Make sure **Plugins are enabled** in your Dashboard.
-2. Make sure your **WoW client language is set to English**.
-
----
-
-## Unsupported WoW Version
-
-Three distinct errors can appear. Find yours below:
-
-**`CONNECTION_FAILED` - "Connection to Server failed!"**
-
-The launcher couldn't reach the authentication server.
-
-- Check **#news** on Discord, servers may be down
-- **CN users:** A VPN, firewall, or regional block may be interfering. Try toggling your VPN or switching servers
-- Check that your firewall/antivirus isn't blocking the launcher
-- If servers are confirmed up and the issue persists, open a ticket in **#technical-support**
-
-**`LOCAL_VERSION_ERROR` - "Could not determine WoW version"**
-
-The launcher failed to read your local WoW installation.
-
-- Open a ticket in **#technical-support** and attach your `product.db` file
-- File location: `C:\ProgramData\Battle.net\Agent\product.db`
-- ⚠️ Make sure it's `product.db`, **not** `.product.db` (note the dot prefix)
-
-**`VERSION_MISMATCH` - "Unsupported WoW version"**
-
-Your WoW client version isn't supported yet, typically after a patch or prepatch.
-
-- Wait for an update announcement in **#news**
-- In the meantime, try **Scan and Repair** via the Battle.net Launcher (gear icon > **Scan and Repair**)
-- Always launch WoW through the **Battle.net Launcher**, never directly via `wow.exe`
-- If the issue persists after an update is confirmed, open a ticket in **#technical-support**
+- Check **#news** on Discord to confirm servers are online.
+- **CN users:** a VPN, firewall, or regional route may be interfering. Try toggling your VPN or switching nodes.
+- Check that Windows Firewall or antivirus software is not blocking the launcher.
+- If servers are confirmed up and the issue persists, open a ticket in **#support**.
 
 ---
 
 ## Opening a Ticket - What to Include
 
-To help us resolve your issue as fast as possible, please include the following when opening a ticket:
+To help support resolve your issue quickly, include:
 
-1. **Crash dump** - found in `WoWDirectory/Retail/Errors` (include both the `.txt` and `.dmp` file).
-2. **Crash condition** - describe in detail when the crash happens (e.g. after `/reload`, on startup, inside a dungeon when targeting an enemy). Include this for every individual crash.
-3. **BugGrabber report** - if you're experiencing a Lua error, attach the BugGrabber report.
+1. **Game:** `World of Warcraft` or `Overwatch 2`.
+2. **Windows version:** run `winver` (for example Windows 11 Pro 24H2).
+3. **Exact error message or screenshot:** crop private account details and local paths before sharing.
+
+For World of Warcraft crashes or Lua errors, see [Opening a WoW Crash Ticket](wow-troubleshooting.md#opening-a-wow-crash-ticket) for crash dump and BugGrabber instructions.

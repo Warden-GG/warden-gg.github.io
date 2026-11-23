@@ -1,6 +1,6 @@
 # 故障排查
 
-在开启工单前，请先查阅以下相关内容。如仍无法解决，请在 Discord 的 **#technical-support** 频道开启工单。
+在开启工单前，请先查阅以下相关内容。如仍无法解决，请在 Discord 的 **#support** 频道开启工单。
 
 ---
 
@@ -15,7 +15,7 @@
 
 **`C:/WGG` 只是占位示例，不能用作你的脚本位置。** 请将所有示例路径替换为实际文件夹路径，不要将该字段留空。
 
-设置步骤请参阅 [设置脚本位置](zh/getting-started.md#第-1-步-设置脚本位置)。
+设置步骤请参阅 [设置脚本位置](zh/getting-started.md#第-1-步-设置脚本位置仅限魔兽世界)。
 
 ---
 
@@ -42,7 +42,7 @@ Remove-Item -Path "C:\Windows\System32\CodeIntegrity\driversipolicy.p7b" -Force 
 
 重新启动 `UNLKR.exe` 并尝试注入。
 
-> ⚠️ 仍然无法解决？请在 **#technical-support** 开启工单。
+> ⚠️ 仍然无法解决？请在 **#support** 开启工单。
 
 ---
 
@@ -84,13 +84,13 @@ Remove-Item -Path "C:\Windows\System32\CodeIntegrity\driversipolicy.p7b" -Force 
 - 检查 Discord 的 **#news** 频道，服务器可能正在维护
 - **国服用户：** VPN、防火墙或地区封锁可能造成干扰，尝试切换或关闭 VPN
 - 检查防火墙或杀毒软件是否拦截了启动器
-- 如果确认服务器正常但问题仍然存在，请在 **#technical-support** 提交工单
+- 如果确认服务器正常但问题仍然存在，请在 **#support** 提交工单
 
 **`LOCAL_VERSION_ERROR` - "无法确定魔兽世界版本"**
 
 启动器无法读取你本地的魔兽世界安装文件。
 
-- 请在 **#technical-support** 提交工单，并附上你的 `product.db` 文件
+- 请在 **#support** 提交工单，并附上你的 `product.db` 文件
 - 文件路径：`C:\ProgramData\Battle.net\Agent\product.db`
 - ⚠️ 请确认是 `product.db`，**不是** `.product.db`（注意有没有前面的点）
 
@@ -101,7 +101,7 @@ Remove-Item -Path "C:\Windows\System32\CodeIntegrity\driversipolicy.p7b" -Force 
 - 请在 **#news** 等待更新公告
 - 同时可以尝试：通过战网启动器进行 **扫描并修复**（齿轮图标 > **扫描并修复**）
 - 始终通过 **战网启动器** 启动游戏，不要直接运行 `wow.exe`
-- 如果确认已更新但问题仍然存在，请在 **#technical-support** 提交工单
+- 如果确认已更新但问题仍然存在，请在 **#support** 提交工单
 
 ---
 
